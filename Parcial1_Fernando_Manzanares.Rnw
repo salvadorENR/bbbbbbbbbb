@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=3cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
+
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\begin{center}
+Fernando Ernesto Manzanares Morán
+\\ RESOLUCIÓN PARCIAL 1 DE R
+\\ Fecha: 14 de septiembre de 2015 
+
+\end{center}
+\textbf{Problema 1.}
+\begin{itemize}
+\item [1.]En sus palabras, ¿cuáles son las ventajas que considera que tiene R con respecto a otros software para el análisis de datos?
+
+\subitem Principalmente que es un software libre (gratis), ademas de que posee una amplia gama de librerias que permiten la creacion de código para el eficiente análisis de datos, ademas de ser muy dinamico e intuitivo a la hora de utilizarse, por la manera de ejcucion tambien consume menos recursos del sistema, esto es muy util cuando no se posee una PC de alto rendimiento.
+
+\item [2.] ¿Cuál el el nombre y número de la versión de R actual, la anterior a la actual y la posterior a la actual y cual es el periodo de tiempo que tiene CRAN para liberar una nueva versión?
+
+\subitem La versión actual es la 3.2.2 (fire safety),la anterior 3.2.1 y la posterior es la 3.1.3 (smooth sidewalk)
+
+\item [3.] Explique la lógica de como cambian los números de las versiones de R.
+\subitem La Version compuesta por tres mumeros por ejemplo 3.x.y donde "x" representa los cambios grandes en la version de R y "y" los cambios que pueden hacerse en la version pero cuando estos son minimos, por ejemplo cuando se agregan nuevos paquetes o se actualizan estos.
+
+\end{itemize}
+
+\textbf{Problema 2.}
+
+Calcular las siguientes operaciones:
+<<>>=
+A<-matrix(c(1,2,2,1,3,4), nrow = 2, ncol = 3)
+B<-matrix(c(1,2,3,0,1,2), nrow = 3, ncol = 2)
+C<-matrix(c(3,4,2,-1,1,1,3,5,3), nrow = 3, ncol = 3)
+D<-matrix(c(3,2,-2,4), nrow = 2, ncol = 2)
+E<-matrix(c(2,0,3,-4,1,2,5,4,1), nrow = 3, ncol = 3)
+F<-matrix(c(-4,2,5,3), nrow = 2, ncol = 2)
+O<-matrix(c(0,0,0,0,0,0,0,0,0), nrow = 3, ncol = 3)
+
+C+E
+E+C
+#A+B no compatibles
+D-F
+-3*C+5*O
+2*C-3*E
+#2*B+F No compatibles
+@
+\textbf{Problema 3.}
+Calcule AB con
+<<>>=
+A<-array(c(2,3,4,3,2,1,4,2,6,3,5,4),dim = c(3,4))
+B<-array(c(20,28,30,40,12,15,12,16,8,15,10,20), dim = c(4,3))
+A
+B
+A%*%B
+@
+\textbf{Problema 4.}
+
+<<>>=
+library("XML", lib.loc="~/R/win-library/3.2")
+readHTMLTable("http://www.jaredlander.com/2012/02/another-kind-of-super-bowl-pool/")
+@
+\textbf{Problema 5.}
+<<>>=
+read.csv("TomatoFirst.csv")
+@
+\textbf{Problema 6.}
+<<>>=
+x=read.csv("TomatoFirst.csv",header = TRUE,sep = "," )
+x=data.frame(read.csv("TomatoFirst.csv",header = TRUE,sep = "," ))
+var1<- x$Tomato
+var2<- x$Sweet
+var3<- x$Acid
+var4<- x$Texture
+var1
+var2
+var3
+var4
+@
+\textbf{Problema 7.}
+<<>>=
+library("foreign", lib.loc="~/R/win-library/3.2")
+SP=data.frame(read.spss("empresas.sav", use.value.labels=TRUE, max.value.label=Inf, to.data.frame=T))
+AGR<- SP$AGR
+CEN<- SP$CEN
+BAN<- SP$BAN
+TC<-  SP$TC
+AGR
+CEN
+BAN
+TC
+summary(AGR)
+summary(CEN)
+summary(BAN)
+summary(TC)
+
+@
+\newpage
+\textbf{Problema 8.}
+<<>>=
+read.csv("Coches.csv")
+@
+\newpage
+\textbf{Problema 9.}
+<<>>=
+#ELIMINADO
+@
+\textbf{Problema 10.}
+<<>>=
+read.table("Ejercicio10.txt", header = TRUE, sep ="\t",dec = "." )
+@
+
+
+
+\end{document}
